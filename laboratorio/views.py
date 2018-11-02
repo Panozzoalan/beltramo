@@ -70,6 +70,9 @@ def medicos_por_especialidad(request,pk):
         medicos = Medico.objects.filter(especialidad=pk)
         return render(request, 'laboratorio/medicos_por_especialidad.html',{'medicos': medicos})
 
+def pacientes_por_estudios(request,pk):
+        pacientes = Paciente.objects.filter(estudio=pk)
+        return render(request, 'laboratorio/pacientes_por_estudios.html',{'pacientes': pacientes})
 
 
 

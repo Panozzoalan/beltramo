@@ -6,7 +6,7 @@ class Paciente(models.Model):
    dni = models.IntegerField(max_length=8)
    telefono = models.CharField(max_length=20)
    fecha_nacimiento = models.DateTimeField()
-
+   estudio=models.ForeignKey('Estudio_medico', on_delete=models.CASCADE)
    def __str__(self):
       return self.nombre_y_apellido
 
@@ -28,13 +28,13 @@ class Medico(models.Model):
       return self.nombre_y_apellido   
 
 
-class Estudio_medico(models.Model):
-   paciente = models.ForeignKey('Paciente', on_delete=models.CASCADE)
+class Estudio_medico(models.Model):    
    medico = models.ManyToManyField('Medico')
    nombre = models.CharField(max_length=200)
    fecha = models.DateTimeField()
 
    def __str__(self):
       return self.nombre
+
 
 
